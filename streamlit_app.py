@@ -18,7 +18,7 @@ df = conn.query("select * from WATCHTOWER_STATIONS_TBL;", ttl=600)
 #for row in df.itertuples():
   # st.write(f"{row.ID} has a :{row.ORGANIZATIONUNITID}:")
 
-st.subheader("MERAKI CLIENTS VIZ")
+st.subheader("WATCHTOWER STATIONS VIZ")
 
 fig = px.scatter(
     df,
