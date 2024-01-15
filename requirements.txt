@@ -2,3 +2,4 @@ toml
 snowflake-snowpark-python
 plotly
 scipy
+numpy
