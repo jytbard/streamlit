@@ -12,7 +12,7 @@ conn = st.connection("snowflake")
 # Perform query.
 #df = conn.query("select * from WATCHTOWER_STATIONS_TBL;", ttl=600)
 
-df = conn.query("select * from MERAKI_CLIENTS_TBL;", ttl=600)
+df = conn.query("select * from WATCHTOWER_STATIONS_TBL;", ttl=600)
 
 # Print results.
 #for row in df.itertuples():
@@ -22,9 +22,9 @@ st.subheader("MERAKI CLIENTS VIZ")
 
 fig = px.scatter(
     df,
-    x="CONNECTEDBY",
-    y="LASTSEEN",
-    color="STATUS",
+    x="NAME",
+    y="ORGANIZATIONUNITNAME",
+    color="ISPOINTOFSALE",
     color_continuous_scale="reds",
 )
 
