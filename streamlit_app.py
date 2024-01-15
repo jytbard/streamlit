@@ -10,19 +10,21 @@ import plotly.express as px
 conn = st.connection("snowflake")
 
 # Perform query.
-df = conn.query("select * from WATCHTOWER_STATIONS_TBL;", ttl=600)
+#df = conn.query("select * from WATCHTOWER_STATIONS_TBL;", ttl=600)
+
+df = conn.query("select * from MERAKI_CLIENTS_TBL;", ttl=600)
 
 # Print results.
-for row in df.itertuples():
-   st.write(f"{row.ID} has a :{row.ORGANIZATIONUNITID}:")
+#for row in df.itertuples():
+  # st.write(f"{row.ID} has a :{row.ORGANIZATIONUNITID}:")
 
-st.subheader("Define a custom colorscale")
+st.subheader("MERAKI CLIENTS VIZ")
 
 fig = px.scatter(
     df,
-    x="ORGANIZATIONUNITID",
-    y="ID",
-    color="ID",
+    x="CONNECTEDBY",
+    y="LASTSEEN",
+    color="STATUS",
     color_continuous_scale="reds",
 )
 
