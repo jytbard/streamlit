@@ -6,11 +6,11 @@ import streamlit as st
 conn = st.connection("snowflake")
 
 # Perform query.
-df = conn.query("SELECT * from mytable;", ttl=600)
+df = conn.query("select * from WATCHTOWER_STATIONS_TBL;", ttl=600)
 
 # Print results.
 for row in df.itertuples():
-    st.write(f"{row.NAME} has a :{row.PET}:")
+    st.write(f"{row.ID} has a :{row.ORGANIZATIONUNITID}:")
 
 
-#https://app.snowflake.com/east-us-2.azure/pja45566
+#pja45566.east-us-2.azure
