@@ -12,5 +12,8 @@ conn = st.connection("snowflake")
 # Perform query.
 df = conn.query("select * from WATCHTOWER_STATIONS_TBL;", ttl=600)
 
-print(df)
+# Print results.
+for row in df.itertuples():
+   st.write(f"{row.ID} has a :{row.ORGANIZATIONUNITID}:")
+
 
