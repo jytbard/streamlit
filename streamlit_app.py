@@ -12,9 +12,13 @@ conn = st.connection("snowflake")
 # Perform query.
 df = conn.query("select * from WATCHTOWER_STATIONS_TBL;", ttl=600)
 
+print(df)
+
 # Print results.
 #for row in df.itertuples():
    # st.write(f"{row.ID} has a :{row.ORGANIZATIONUNITID}:")
+
+#df.groupby('Team')
 
 # Add histogram data
 x1 = np.random.randn(200) - 2
@@ -23,6 +27,8 @@ x3 = np.random.randn(200) + 2
 
 # Group data together
 hist_data = [x1, x2, x3]
+
+
 
 group_labels = ['Group 1', 'Group 2', 'Group 3']
 
